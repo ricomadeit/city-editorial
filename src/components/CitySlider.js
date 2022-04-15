@@ -6,17 +6,22 @@ function CitySlider() {
 
     const [current, setCurrent] = useState(navigation.cities[0].section)
 
-    function resize(section) {
+    function resize(e, section) {
         setCurrent(section)
+        var marker = document.querySelector('#marker')
+        marker.style.left = e.offsetLeft+"px";
+        marker.style.width = e.offsetWidth+"px";
+        console.log(marker.style.left)
     }
 
     return (
         <>
-            <div className="slider">
+            <nav className="nav">
                 {navigation.cities.map( (item, i) => {
-                    return <p className={current === item.section ? 'currentItem' : 'item'} key={i} onClick={() => resize(item.section)}>{item.label}</p>
+                    return <p className={current === item.section ? 'currentItem' : 'item'} id={item.section} key={i} onClick={(e) => resize(e.target, item.section)}>{item.label}</p>
                 })}
-            </div>
+                <div className="slider" id="marker"></div>
+            </nav>
         </>
     )
 }
