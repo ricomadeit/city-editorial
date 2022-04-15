@@ -4,7 +4,9 @@ import CitySlider from './components/CitySlider';
 function App() {
   return (
     <>
-      <CitySlider />
+      <div className='sticky-bottom'>
+        <CitySlider />
+      </div>
     </>
   );
 }
