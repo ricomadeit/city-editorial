@@ -4,7 +4,6 @@ import CitySlider from './components/CitySlider';
 function App() {
   return (
     <>
-      <h1>hello</h1>
       <CitySlider />
     </>
   );
